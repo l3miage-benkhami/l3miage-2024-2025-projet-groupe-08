@@ -12,14 +12,17 @@
 
     <p>@if (assigned) { {{ livraison.livreur }} } {{ livraison.adresse }}</p>
     <p>{{ livraison.details }}</p>
+    <div class="livraison-buttons">
+      <button (click)="livraisonLivree(livraison)">Livrée</button>
     @if (!assigned && selectedLivreur != undefined) {
-    <button
-      class="assign-btn"
-      (click)="livraisonAssigned(livraison.id_livraison)"
-    >
-      Assign to {{ selectedLivreur!.name }}
-    </button>
+      <button
+        (click)="livraisonAssigned(livraison.id_livraison)"
+      >
+        Assign to {{ selectedLivreur!.name }}
+      </button>
     }
+    </div>
+    
   </div>
   }
 </div>

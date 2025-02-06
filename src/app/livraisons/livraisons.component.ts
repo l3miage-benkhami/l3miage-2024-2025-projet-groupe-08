@@ -26,7 +26,6 @@ export class LivraisonsComponent {
   }
 
   get livraisons() {
-    console.log(this.assigned);
     return this.assigned
       ? this.livraisonsService.assignedLivraisons
       : this.livraisonsService.unassignedLivraisons;
@@ -41,5 +40,9 @@ export class LivraisonsComponent {
       id_livraison,
       this.livreursService.selectedLivreur!.id
     );
+  }
+
+  livraisonLivree(livraison: LivraisonType) {
+    this.livraisonsService.deliveredLivraison(livraison);
   }
 }

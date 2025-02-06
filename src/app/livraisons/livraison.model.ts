@@ -4,4 +4,6 @@ export interface LivraisonType {
   commande: string;
   adresse: string;
   details: string;
+  delivered: boolean;
+  deliveryDate: Date;
 }

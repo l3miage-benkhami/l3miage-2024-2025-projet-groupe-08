@@ -5,18 +5,18 @@ export const Livreurs: LivreurType[] = [
     id: '1',
     name: 'Jane Doe',
     email: 'jane.doe@mobilis.fr',
-    photo: '/photos/macron.jpg',
+    photo: '/photos/jane.jpg',
   },
   {
     id: '2',
     name: 'John Doe',
     email: 'john.doe@mobilis.fr',
-    photo: '/photos/sarkozy.jpg',
+    photo: '/photos/john.jpg',
   },
   {
     id: '3',
-    name: 'David Lee',
+    name: 'David McLeen',
     email: 'david.lee@mobilis.fr',
-    photo: '/photos/hollande.jpg',
+    photo: '/photos/david.jpg',
   },
 ];

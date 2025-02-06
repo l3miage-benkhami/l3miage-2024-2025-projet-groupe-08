@@ -1,15 +1,22 @@
+import { LivraisonType } from './livraison.model';
 import { Livraions } from './livraisons.data';
 import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class LivraisonsService {
   private livraisons = Livraions;
+  private filterID : string | undefined;
+  get assignedLivraisons() {
+    if (this.filterID === undefined) {
+      return this.livraisons.filter(liv => liv.livreur != undefined && liv.delivered === false) ;
+    } else {
+      return this.livraisons.filter(liv => liv.livreur === this.filterID && liv.delivered === false) ;
+    }
+  }
 
-  assignedLivraisons = this.livraisons.filter(
-    (liv) => liv.livreur != undefined
-  );
-  unassignedLivraisons = this.livraisons.filter(
-    (liv) => liv.livreur === undefined
-  );
+  get unassignedLivraisons() {
+    return this.livraisons.filter(liv => liv.livreur === undefined && liv.delivered === false);
+  }
+
 
   assignLivraison(idLivraison: string, idLivreur: string) {
     let livIndex = this.unassignedLivraisons.findIndex(
@@ -22,14 +29,12 @@ export class LivraisonsService {
   }
 
   filterLivraisons(livreurId: string | undefined) {
-    if (livreurId === undefined) {
-      this.assignedLivraisons = this.livraisons.filter(
-        (liv) => liv.livreur != undefined
-      );
-    } else {
-      this.assignedLivraisons = this.livraisons.filter(
-        (liv) => liv.livreur === livreurId
-      );
-    }
+    this.filterID = livreurId;
+  }
+
+  deliveredLivraison(livraison: LivraisonType) {
+    let i  = this.livraisons.findIndex((liv) => liv.id_livraison === livraison.id_livraison);
+    this.livraisons[i].delivered = true;
+    console.log(this.livraisons);
   }
 }
