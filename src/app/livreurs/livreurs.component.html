@@ -1,0 +1,12 @@
+<div class="livreurs">
+  <h2>Livreurs</h2>
+  <button (click)="resetLivraisons()">Reset</button>
+
+  <ul>
+    @for (livreur of livreurs; track livreur.id){
+    <li>
+      <livreur [livreur]="livreur" />
+    </li>
+    }
+  </ul>
+</div>

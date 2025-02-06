@@ -1,0 +1,25 @@
+<div class="livraisons">
+  @if (assigned) {
+  <h2>
+    @if (selectedLivreur) { Livraisons de {{ selectedLivreur.name }}} @else
+    {Toutes les livraisons assingées}
+  </h2>
+  } @else {
+  <h2>Non-assigné</h2>
+  } @for(livraison of livraisons; track livraison.id_livraison) {
+  <div class="livraison" [class.borderless]="assigned">
+    <h4>{{ livraison.commande }}</h4>
+
+    <p>@if (assigned) { {{ livraison.livreur }} } {{ livraison.adresse }}</p>
+    <p>{{ livraison.details }}</p>
+    @if (!assigned && selectedLivreur != undefined) {
+    <button
+      class="assign-btn"
+      (click)="livraisonAssigned(livraison.id_livraison)"
+    >
+      Assign to {{ selectedLivreur!.name }}
+    </button>
+    }
+  </div>
+  }
+</div>

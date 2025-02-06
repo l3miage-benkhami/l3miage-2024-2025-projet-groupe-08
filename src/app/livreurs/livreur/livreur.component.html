@@ -1,0 +1,8 @@
+<div
+  class="livreur"
+  [class.selected_livreur]="isSelected"
+  (click)="handleLivreurClicked(livreur!)"
+>
+  <img [src]="livreur?.photo" width="50px" />
+  <p>{{ livreur?.name }}</p>
+</div>

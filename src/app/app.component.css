@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background-color: rgb(221, 215, 215);
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.map {
+  width: 600px;
+  border-radius: 5px;
+  transition: width 0.25s ease-in-out; /* Smooth transition */
+}
+
+.map:hover {
+  width: 700px;
+  border-radius: 5px;
+}
+
+.livraisons-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center;*/
+}
+
+.toute-livraisons {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  background-color: rgb(217, 217, 217);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: rgb(158, 153, 153);
+  cursor: pointer;
+  transform: 0.25s;
+}
+
+.livreurs-container {
+  margin-right: 100px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background: #d5d5d5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #b7b7b7;
+}

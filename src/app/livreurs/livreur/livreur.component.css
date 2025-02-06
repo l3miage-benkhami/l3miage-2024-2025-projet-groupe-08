@@ -1,0 +1,33 @@
+.livreur:hover {
+  cursor: pointer;
+  color: rgb(72, 68, 68);
+}
+
+.livreur {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 10px 0 10px;
+}
+
+.livreur img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  transition: 0.25s ease-in-out;
+}
+
+.livreur:hover img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.selected_livreur {
+  background-color: rgb(216, 216, 215);
+  border-radius: 10px;
+}
