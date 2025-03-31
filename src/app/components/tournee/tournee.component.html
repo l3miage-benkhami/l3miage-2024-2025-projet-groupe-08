@@ -1,0 +1,12 @@
+<h1>Les commandes prévues :</h1>
+
+<ul>
+  @for (commande of getCommandesPourCurrentTournee(); track commande["référence"]) {
+    <li>
+      <h3>{{ commande["référence"] }}</h3>
+      <p>Adresse : {{ getAdresseOfCommande(commande["référence"]) }}</p>
+    </li>
+  } @empty {
+    <p>Pas de commandes prévues.</p>
+  }
+</ul>

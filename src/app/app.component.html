@@ -1,0 +1,58 @@
+@if (!loggedIn()) {
+    <input type="text" placeholder="Email"/>
+    <br />
+        <input type="password" placeholder="Password"/>
+<br>
+    <button (click)="toggleLoggedIn()">Login</button>
+
+} @else {
+    <button (click)="toggleLoggedIn()">
+        Logout
+    </button>
+    <app-map [currentTournee]="currentTournee()"/>
+
+    @if (currentTournee() >= 0) {
+        <button (click)="resetTournee()">Back</button>
+        <!-- Livreurs et équipes -->
+        <button (click)="toggleSelectingLivreur()">Designer Livreurs</button>
+        @if(selectingLivreur()){
+            @for(livreur of allLivreurs(); track livreur.id) {
+                <li (click)="designerLivreurATournee(livreur.id)">
+                    {{ livreur.nom }} {{ livreur.prenom }}
+                </li>
+            }
+        }
+
+        <button (click)="toggleSelectingCamion()">Select Camion</button>
+        @if(selectingCamion()){
+            @for(camion of allCamion(); track camion.code) {
+                <li (click)="designerCamionATournee(camion['code'])">
+                    {{ camion.type }} {{ camion.immatriculation }}
+                </li>
+            }
+        }
+
+        <h3>Équipe: </h3>
+        @for(livreur of getLivreurDeLaTourneeCourante(); track livreur.id) {
+            <li>
+                {{ livreur.nom }} {{ livreur.prenom | titlecase }}
+            </li>
+        }
+
+        <h3>Camion: </h3>
+        <p>{{ camionPourTournee()?.type }} {{ camionPourTournee()?.immatriculation }}</p>
+
+
+        <div class="commandes-tournee-container">
+            <app-commandes [tourneeId]="currentTournee()"  />
+            <app-tournee [tourneeId]="currentTournee()"  />
+        </div>
+    } @else {
+        <button (click)="ajouterTournee()">Ajouter tournée</button>
+        <ul>
+            @for(tournee of allTournee(); track tournee.id) {
+                <li (click)="selectTournee(tournee.id)">Tournee: {{tournee.id}}</li>
+            }
+        </ul>
+    }
+}

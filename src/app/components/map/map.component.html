@@ -1,0 +1,13 @@
+<div style="height: 300px;"
+     leaflet 
+     [leafletOptions]="options()"
+     [leafletLayers]="layers()"
+     (leafletClick)="addMarker('361 allee de la republique')">
+</div>
+<button (click)="clearPaths()">Clear paths</button>
+@if (currentTournee() >= 0)
+{
+     <button (click)="updateMarkersForCurrentTournee()">Dessiner trajectoire pour la tournee selectionée</button>
+} @else {
+     <button (click)="updateMarkersForAllTournee()">Dessiner trajectoire pour toutes les tournées</button>
+}

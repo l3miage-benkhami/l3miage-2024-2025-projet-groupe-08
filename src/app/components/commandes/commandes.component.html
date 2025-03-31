@@ -1,0 +1,14 @@
+<h2>Commandes ouvertes</h2>
+
+<ul>
+  @for (commande of getCommandesOuvertes(); track commande["référence"]) {
+    <li>
+      <p>{{ commande["référence"] }}</p>
+      <p>Date : {{ commande['date de création'] }}</p>
+      <p>Adresse : {{ commandesService.getAdresseOfCommande(commande["référence"]) }}</p>
+      <button (click)="selectedCommande(commande['référence'])">Ajouter</button>
+    </li>
+  } @empty {
+    <li>Aucune commande prévue pour cette tournée.</li>
+  }
+</ul>

@@ -1,0 +1,5 @@
+.commandes-tournee-container {
+    display: flex;
+    justify-content: space-between; 
+    padding: 0 50px 0 50px;
+}
